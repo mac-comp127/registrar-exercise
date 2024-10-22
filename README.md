@@ -6,10 +6,12 @@ In this take-home activity, we are practicing:
 - **Thinking about API contracts**: writing code that satisfies logical constraints.
 - **Defensive programming**: writing code that actively prevents other code from using it incorrectly.
 
-We give you objects used by a hypothetical college registrar system to track which students are enrolled in which courses. We also give you the API contract of these objects. Your job is to add two new features while preserving the API contract.
-
 
 ## Contract of the `Student` and `Course` API
+
+The starting point for this take-home exercise is the same Registrar model you worked with in class, with one additional wrinkle: courses now have waitlists.
+
+Here is the new API contract:
 
 - Students know their registered courses, and courses know the list of students enrolled in them.
     > For all students and courses, `student.getCourses().contains(course)` if and only if `course.getRoster().contains(student)`.
@@ -35,7 +37,9 @@ Spend a little time understanding the structure of `RegistrarTest`. Note all the
 
 ## First task: Implement `drop()`
 
-Add the ability for students to drop courses.
+Your job in this exercise is to add two new features while **preserving the API contract**.
+
+First, you will add the ability for students to drop courses.
 
 - A student can ask to drop any class at any time: they can be enrolled, waitlisted, or not in the class at all.
 - If an enrolled student drops, then the first wait-listed student is automatically enrolled. (That’s not realistic, of course, but it makes for a better programming exercise! I guess the registrar at this college is just a little too eager.)
